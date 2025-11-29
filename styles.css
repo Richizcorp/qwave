@@ -133,8 +133,15 @@ h2 {
     background-color: #4a684f;
 }
 
+/* Gaya khusus untuk item di halaman index.html (Dashboard) */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    padding: 0 50px;
+}
 .dashboard-item {
-    /* Gaya untuk item di halaman index.html (Dashboard) */
     background-color: var(--color-card);
     padding: 30px;
     border-radius: 8px;
@@ -208,7 +215,7 @@ footer {
     border-top: 1px solid #e0e0e0;
 }
 
-/* --- GAYA MODAL (ZOOM) --- */
+/* --- GAYA MODAL (ZOOM) DENGAN PERBAIKAN SCROLL --- */
 
 .modal {
     display: none; 
@@ -219,6 +226,8 @@ footer {
     width: 100%; 
     height: 100%; 
     background-color: rgba(0,0,0,0.9); /* Latar belakang gelap klasik */
+    
+    /* PENTING: Untuk membuat modal bisa di-scroll jika isinya terlalu besar */
     overflow-y: auto; 
     -webkit-overflow-scrolling: touch; 
 }
@@ -230,6 +239,8 @@ footer {
     max-width: 900px;
     border: 5px solid white; /* Frame putih bersih */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    
+    /* PENTING: Agar gambar tidak melebihi tinggi viewport */
     max-height: 80vh; 
     object-fit: contain; 
 }
@@ -253,7 +264,7 @@ footer {
     font-size: 40px;
     font-weight: normal;
     transition: 0.3s;
-    z-index: 101; 
+    z-index: 101; /* Pastikan tombol close tidak ikut scroll */
 }
 
 .close:hover,
