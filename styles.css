@@ -273,3 +273,50 @@ footer {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* --- PERBAIKAN RESPONSIVITAS KHUSUS MOBILE --- */
+
+@media (max-width: 768px) {
+    
+    /* 1. Atur Tampilan Header dan Judul */
+    header {
+        padding: 20px 10px;
+    }
+    
+    header h1 {
+        font-size: 1.8em; /* Kecilkan ukuran judul */
+    }
+
+    /* 2. Tata Ulang Navigasi (Masalah Utama) */
+    nav {
+        /* Posisikan link navigasi menjadi satu kolom/tumpukan */
+        display: flex;
+        flex-direction: column; /* Ubah tampilan dari baris menjadi kolom */
+        align-items: center; /* Rata tengah */
+        gap: 8px; /* Beri jarak antar link */
+        margin-top: 15px;
+    }
+
+    nav a {
+        margin: 5px 0; /* Hilangkan margin horizontal yang berlebihan */
+        padding: 8px 15px;
+        width: 80%; /* Link mengisi sebagian besar lebar */
+        box-sizing: border-box; /* Pastikan padding dihitung dalam lebar */
+    }
+    
+    /* 3. Penyesuaian Konten Utama */
+    main {
+        padding: 0 10px; /* Kurangi padding samping */
+    }
+
+    /* 4. Sesuaikan Dashboard (jika Anda sedang di index.html) */
+    .dashboard-grid {
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    /* 5. Sesuaikan Galeri (Agar gambar tidak terlalu kecil) */
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Paksa menjadi 1 kolom di HP */
+    }
+}
