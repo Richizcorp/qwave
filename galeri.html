@@ -11,7 +11,9 @@
     <header>
         <h1>Galeri Kenangan Kelas [Nama Kelas Anda]</h1>
         <nav>
-            <a href="index.html">Kembali ke Beranda</a>
+            <a href="index.html">Dashboard</a>
+            <a href="info.html">Informasi Kelas</a>
+            <a href="galeri.html">Galeri Kenangan</a>
         </nav>
     </header>
 
@@ -35,12 +37,16 @@
                     <img class="myImg" src="images/foto3.jpg" alt="Lomba Kelas">
                     <p class="caption">Momen saat memenangkan lomba 17-an!</p>
                 </div>
+                <div class="gallery-item">
+                    <img class="myImg" src="images/foto4.jpg" alt="Studi Tour Museum">
+                    <p class="caption">Studi Tour ke Museum Nasional (Oktober 2024)</p>
+                </div>
                 </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; [Tahun] Kelas [Nama Kelas Anda]. Dibuat dengan kenangan.</p>
+        <p>&copy; [Tahun] Kelas [Nama Kelas Anda]. Dibuat dengan semangat kebersamaan.</p>
     </footer>
 
     <div id="myModal" class="modal">
@@ -48,12 +54,13 @@
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
+
     <script>
-        // SCRIPT JAVASCRIPT UNTUK FUNGSI ZOOM MODAL
         var modal = document.getElementById("myModal");
         var images = document.getElementsByClassName('myImg');
         var modalImg = document.getElementById("img01");
         var captionText = document.getElementById("caption");
+        var body = document.body; // Ambil elemen body
 
         // Loop untuk setiap gambar agar bisa diklik
         for (var i = 0; i < images.length; i++) {
@@ -62,17 +69,22 @@
                 modal.style.display = "block";
                 modalImg.src = this.src; 
                 captionText.innerHTML = this.alt; 
+                body.style.overflow = "hidden"; // Menonaktifkan scroll pada body
             }
         }
 
-        // Fungsi tutup modal (tombol X dan klik di luar)
+        // Fungsi tutup modal (tombol X)
         var span = document.getElementsByClassName("close")[0];
         span.onclick = function() { 
             modal.style.display = "none";
+            body.style.overflow = "auto"; // Mengaktifkan kembali scroll pada body
         }
+
+        // Fungsi tutup modal (klik di luar modal)
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+                body.style.overflow = "auto"; // Mengaktifkan kembali scroll pada body
             }
         }
     </script>
