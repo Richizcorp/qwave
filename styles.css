@@ -187,3 +187,73 @@ footer {
 .gallery-item {
     overflow: hidden;
     border-radius: 8px
+}
+
+
+/* ================================================= */
+/* --- MEDIA QUERIES UNTUK TAMPILAN MOBILE --- */
+/* ================================================= */
+@media (max-width: 768px) {
+    /* Header & Navigasi */
+    header h1 {
+        font-size: 1.8em; /* Mengecilkan ukuran header */
+    }
+
+    nav {
+        display: flex; /* Menggunakan Flexbox untuk navigasi */
+        flex-direction: column; /* Mengatur item navigasi menjadi kolom */
+        align-items: center;
+        gap: 8px; /* Jarak antar item nav */
+    }
+
+    nav a {
+        margin: 5px 0; /* Menghapus margin horizontal, menambahkan vertikal */
+        padding: 8px 15px; /* Menambah area klik */
+        width: 80%; /* Membuat link lebih lebar untuk mudah diklik */
+        text-align: center;
+    }
+
+    /* Konten Utama */
+    main {
+        margin: 20px auto; /* Margin atas/bawah dikurangi */
+        padding: 0 15px; /* Padding samping dikurangi */
+    }
+
+    section {
+        padding: 20px; /* Padding section dikurangi */
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        font-size: 1.5em; /* Ukuran h2 dikurangi */
+    }
+
+    /* Dashboard Index */
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* Mengubah grid menjadi 1 kolom penuh */
+        gap: 20px;
+        padding: 0; /* Menghapus padding 50px */
+    }
+    
+    .dashboard-item {
+        padding: 25px; /* Padding item dikurangi */
+    }
+
+    /* Daftar Siswa & Guru Detail */
+    .siswa-list {
+        grid-template-columns: 1fr; /* Daftar siswa menjadi 1 kolom penuh */
+        gap: 15px;
+    }
+
+    .guru-detail {
+        padding: 15px;
+    }
+
+    /* Galeri */
+    .gallery-grid {
+        /* Mengatur agar gambar galeri menjadi 1 kolom di HP, 
+           minmax(300px, 1fr) bisa menyebabkan gambar kecil melebar penuh 
+           jika grid-template-columns diatur 1fr */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
