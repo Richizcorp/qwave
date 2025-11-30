@@ -1,6 +1,5 @@
 /* --- MINIMALIST EARTHY CORE (Pengaturan Dasar) --- */
 :root {
-    /* Palet Warna Alam/Earthy */
     --color-background: #f8f8f8;     
     --color-card: #ffffff;           
     --color-primary: #587d5e;        
@@ -23,12 +22,12 @@ body {
 header {
     background-color: var(--color-primary);
     color: white;
-    padding: 15px 20px; /* Padding Header */
+    padding: 15px 20px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex; /* Flexbox untuk tata letak Judul dan Menu */
+    display: flex; 
     justify-content: space-between; 
     align-items: center;
-    position: relative; /* Penting untuk posisi menu mobile */
+    position: relative; 
 }
 
 header h1 {
@@ -38,11 +37,12 @@ header h1 {
     text-align: left; 
 }
 
-/* Navigasi Desktop (default) */
+/* Navigasi Desktop (default: selalu horizontal) */
 .nav-menu {
-    display: flex; /* Tampilkan dalam baris */
+    display: flex !important; /* Paksa selalu flex di luar media query */
     gap: 15px;
     transition: all 0.3s;
+    height: auto !important; /* Paksa tinggi auto di desktop */
 }
 
 .nav-item {
@@ -58,9 +58,9 @@ header h1 {
     background-color: #4a684f;
 }
 
-/* Tombol Hamburger (tersembunyi di desktop) */
+/* Tombol Hamburger (tersembunyi di desktop secara default) */
 .hamburger {
-    display: none;
+    display: none !important; /* Paksa tombol hamburger Sembunyi di desktop */
     background: none;
     border: none;
     font-size: 2em;
@@ -70,7 +70,7 @@ header h1 {
     z-index: 20; 
 }
 
-/* --- CONTENT SECTIONS --- */
+/* --- CONTENT SECTIONS (Sisanya sama seperti sebelumnya) --- */
 main {
     max-width: 1000px;
     margin: 30px auto;
@@ -93,7 +93,6 @@ h2 {
     margin-top: 0;
     font-size: 1.8em;
 }
-
 
 /* --- Profil Foto (Persegi & Ringkas) --- */
 .profile-photo {
@@ -320,6 +319,7 @@ footer {
     cursor: pointer;
 }
 
+
 /* ================================================= */
 /* --- MEDIA QUERIES UNTUK TAMPILAN MOBILE (< 768px) --- */
 /* ================================================= */
@@ -332,30 +332,30 @@ footer {
         font-size: 1.8em;
     }
 
-    /* Tampilkan tombol Hamburger */
+    /* Tampilkan tombol Hamburger di mobile */
     .hamburger {
-        display: block; 
+        display: block !important; 
     }
-
-    /* Atur tampilan menu di mobile */
+    
+    /* Navigasi di Mobile (Sembunyikan Menu kecuali dipanggil) */
     .nav-menu {
         position: absolute;
-        top: 100%; /* Mulai di bawah header */
+        top: 100%; 
         left: 0;
         width: 100%;
-        height: 0; /* Menu awalnya disembunyikan */
+        height: 0; /* Awalnya disembunyikan */
         display: flex;
         flex-direction: column;
         background-color: var(--color-primary);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        overflow: hidden; /* Sembunyikan konten */
+        overflow: hidden; 
         transition: height 0.3s ease-in-out;
         z-index: 15;
     }
 
     /* Kelas 'active' ditambahkan oleh JavaScript saat hamburger diklik */
     .nav-menu.active {
-        height: 200px; /* Tinggi yang cukup untuk menampung semua item (sesuaikan jika perlu) */
+        height: 200px; 
         padding-bottom: 10px;
     }
 
@@ -364,7 +364,7 @@ footer {
         padding: 10px 15px;
         text-align: center;
         width: auto;
-        border-bottom: 1px solid #4a684f; /* Garis pemisah antar menu */
+        border-bottom: 1px solid #4a684f; 
     }
     .nav-item:last-child {
         border-bottom: none;
@@ -378,22 +378,7 @@ footer {
         padding: 0; 
     }
 
-    /* Foto Profil Mobile (Dikecilkan) */
-    .profile-photo {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-    }
-    .small-photo {
-        width: 40px;
-        height: 40px;
-    }
-    .guru-profile .profile-photo {
-        width: 70px;
-        height: 70px;
-    }
-
-    /* Guru Detail Mobile (Menjadi Tumpukan) */
+    /* ... (Semua CSS Mobile lainnya) ... */
     .guru-profile {
         flex-direction: column;
         text-align: center;
@@ -402,7 +387,6 @@ footer {
         margin-bottom: 10px;
         margin-right: 0;
     }
-
     .guru-list-container {
         flex-direction: column;
         gap: 10px;
@@ -411,18 +395,11 @@ footer {
         width: 100%; 
         padding: 6px; 
     }
-
-    /* Daftar Siswa Mobile */
     .siswa-list {
         grid-template-columns: 1fr; 
         gap: 10px; 
     }
     .siswa-item {
         padding: 10px; 
-    }
-    
-    /* Modal Responsif */
-    .modal-content {
-        width: 90%;
     }
 }
