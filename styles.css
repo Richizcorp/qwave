@@ -119,8 +119,8 @@ header h1 {
 
 .running-info-content {
     display: inline-block; 
-    /* PERUBAHAN DI SINI: DURASI MENJADI 2s (2 detik) */
-    animation: marquee 30s linear infinite; 
+    /* PERUBAHAN DI SINI: DURASI DIATUR KE 8s (8 detik, kecepatan ideal) */
+    animation: marquee 8s linear infinite; 
 }
 
 .running-info-content p {
@@ -206,4 +206,257 @@ section {
 .guru-list-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
 
+.guru-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: var(--color-card);
+    transition: transform 0.2s;
+}
+
+.guru-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.guru-item h4 {
+    margin: 0;
+    color: var(--color-text);
+}
+
+
+/* Gaya Daftar Siswa */
+.siswa-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.siswa-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    background-color: #fefefe;
+}
+
+.siswa-item h4 {
+    margin-top: 0;
+    color: var(--color-primary);
+}
+
+.siswa-item p {
+    font-style: italic;
+    color: var(--color-light-text);
+    margin-bottom: 0;
+}
+
+.total-siswa {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #e6f7e9; 
+    color: var(--color-primary);
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* --- DASHBOARD (index.html) --- */
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.dashboard-item {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+    background-color: var(--color-card);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--color-accent);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border-left-color: var(--color-primary);
+}
+
+.dashboard-item h3 {
+    margin-top: 0;
+    color: var(--color-primary);
+    font-size: 1.5em;
+}
+
+.dashboard-item p {
+    color: var(--color-light-text);
+    margin-bottom: 0;
+}
+
+/* --- GALERI KENANGAN (galeri.html) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-card);
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.caption {
+    padding: 10px;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+/* Modal untuk Galeri */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 50; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 8px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 40px;
+    color: white;
+    background-color: var(--color-primary); 
+    font-size: 0.9em;
+}
+
+
+/* --- MEDIA QUERIES (Responsif) --- */
+@media (max-width: 768px) {
+    /* Header Mobile */
+    header {
+        padding: 15px 15px;
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    /* Menu di Mobile: Paksa lebar penuh di HP */
+    .nav-menu {
+        width: 100%; 
+        right: 0; 
+        left: 0;
+        border-radius: 0;
+    }
+    
+    .nav-item {
+        text-align: center; /* Rata tengah di HP */
+    }
+
+    /* Dashboard Index Mobile */
+    .dashboard-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        padding: 0; 
+    }
+
+    /* Wali Kelas Mobile */
+    .guru-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    .guru-detail {
+        margin-top: 15px;
+    }
+
+    /* Siswa Mobile */
+    .siswa-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Foto Profil di Mobile */
+    .profile-photo {
+        width: 100px; 
+        height: 100px;
+    }
+}
