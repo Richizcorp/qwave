@@ -10,7 +10,6 @@
 }
 
 /* 🚨 UNIVERSAL OVERFLOW FIX (PENTING UNTUK MOBILE) 🚨 */
-/* Pastikan tidak ada elemen yang dapat menyebabkan horizontal scroll */
 html, body {
     overflow-x: hidden; /* Mencegah horizontal scroll di seluruh halaman */
 }
@@ -120,7 +119,8 @@ header h1 {
 
 .running-info-content {
     display: inline-block; 
-    animation: marquee 45s linear infinite; 
+    /* DURATION DIUBAH KE 30s AGAR LEBIH CEPAT DI PC DAN HP */
+    animation: marquee 15s linear infinite; 
 }
 
 .running-info-content p {
@@ -135,6 +135,7 @@ header h1 {
         transform: translateX(100%); 
     }
     100% {
+        /* Jarak pergerakan disesuaikan agar berjalan tanpa putus */
         transform: translateX(-100%); 
     }
 }
