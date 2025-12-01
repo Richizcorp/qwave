@@ -120,7 +120,7 @@ header h1 {
 .running-info-content {
     display: inline-block; 
     /* DURATION DIUBAH KE 30s AGAR LEBIH CEPAT DI PC DAN HP */
-    animation: marquee 5s linear infinite; 
+    animation: marquee 10s linear infinite; 
 }
 
 .running-info-content p {
@@ -461,6 +461,7 @@ footer {
         height: 100px;
     }
 }
+
 
 
 
