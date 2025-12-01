@@ -120,7 +120,7 @@ header h1 {
 .running-info-content {
     display: inline-block; 
     /* PERUBAHAN DI SINI: DURASI MENJADI 2s (2 detik) */
-    animation: marquee 2s linear infinite; 
+    animation: marquee 30s linear infinite; 
 }
 
 .running-info-content p {
@@ -206,3 +206,4 @@ section {
 .guru-list-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
