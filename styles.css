@@ -18,6 +18,12 @@ body {
     line-height: 1.6; 
 }
 
+h2 {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
 
 /* --- THE CLEAN LAYOUT (Header & Navigasi HAMBURGER) --- */
 header {
@@ -26,7 +32,7 @@ header {
     padding: 15px 20px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex; 
-    justify-content: space-between; /* Untuk memisahkan Judul dan Hamburger */
+    justify-content: space-between; 
     align-items: center;
     position: relative; 
 }
@@ -38,25 +44,23 @@ header h1 {
     text-align: left; 
 }
 
-/* Tombol Hamburger: SELALU TAMPIL */
 .hamburger {
-    display: block; /* Mengganti 'display: none' sebelumnya */
+    display: block; 
     background: none;
     border: none;
-    font-size: 2.2em; /* Sedikit diperbesar */
+    font-size: 2.2em; 
     color: white;
     cursor: pointer;
     padding: 0 10px;
     z-index: 20; 
 }
 
-/* Navigasi Menu: SELALU DISEMBUNYIKAN secara default (baik Desktop maupun Mobile) */
 .nav-menu {
     position: absolute;
-    top: 100%; /* Mulai di bawah header */
-    right: 0; /* Pindah ke kanan */
-    width: 250px; /* Lebar menu untuk desktop/laptop */
-    height: 0; /* Menu awalnya disembunyikan */
+    top: 100%; 
+    right: 0; 
+    width: 250px; 
+    height: 0; 
     display: flex;
     flex-direction: column;
     background-color: var(--color-primary);
@@ -64,13 +68,11 @@ header h1 {
     overflow: hidden; 
     transition: height 0.3s ease-in-out;
     z-index: 15;
-    /* Tambahan Styling agar menu rata kanan di desktop */
     border-radius: 0 0 6px 6px; 
 }
 
-/* Kelas 'active' ditambahkan oleh JavaScript saat hamburger diklik */
 .nav-menu.active {
-    height: 200px; /* Tinggi yang cukup untuk menampung semua item */
+    height: 200px; 
     padding-bottom: 10px;
 }
 
@@ -80,7 +82,7 @@ header h1 {
     font-weight: 500;
     padding: 10px 15px;
     margin: 0 10px;
-    text-align: right; /* Rata kanan di dalam menu */
+    text-align: right; 
     transition: background-color 0.3s;
     border-bottom: 1px solid #4a684f;
 }
@@ -93,7 +95,7 @@ header h1 {
     border-bottom: none;
 }
 
-/* --- CONTENT SECTIONS (Sisanya sama seperti sebelumnya) --- */
+/* --- CONTENT SECTIONS --- */
 main {
     max-width: 1000px;
     margin: 30px auto;
@@ -108,8 +110,256 @@ section {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     border: 1px solid #e0e0e0;
 }
-/* ... (Masukkan semua styling konten, guru, siswa, dashboard, footer, dan modal di sini) ... */
-/* Saya hilangkan sebagian besar kode di sini untuk fokus pada perubahan header */
+
+/* --- FIX UKURAN FOTO DAN PROFIL (Guru & Siswa) --- */
+
+/* Foto Profil Umum */
+.profile-photo {
+    width: 120px; /* Ukuran standar foto */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%; /* Membuat foto menjadi lingkaran */
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0; /* Mencegah foto menciut */
+}
+
+/* Foto Guru Utama (dibuat lebih kecil dari wali kelas) */
+.small-photo {
+    width: 80px; 
+    height: 80px;
+    border-width: 2px;
+}
+
+/* Gaya Profil Wali Kelas */
+.guru-profile {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+}
+
+.guru-detail h3 {
+    color: var(--color-primary);
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.guru-detail p {
+    color: var(--color-light-text);
+    margin: 5px 0;
+}
+
+/* Gaya Daftar Guru */
+.guru-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.guru-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: var(--color-card);
+    transition: transform 0.2s;
+}
+
+.guru-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.guru-item h4 {
+    margin: 0;
+    color: var(--color-text);
+}
+
+
+/* Gaya Daftar Siswa */
+.siswa-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.siswa-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    background-color: #fefefe;
+}
+
+.siswa-item h4 {
+    margin-top: 0;
+    color: var(--color-primary);
+}
+
+.siswa-item p {
+    font-style: italic;
+    color: var(--color-light-text);
+    margin-bottom: 0;
+}
+
+.total-siswa {
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #e6f7e9; 
+    color: var(--color-primary);
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* --- DASHBOARD (index.html) --- */
+.intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.dashboard-item {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+    background-color: var(--color-card);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--color-accent);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dashboard-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    border-left-color: var(--color-primary);
+}
+
+.dashboard-item h3 {
+    margin-top: 0;
+    color: var(--color-primary);
+    font-size: 1.5em;
+}
+
+.dashboard-item p {
+    color: var(--color-light-text);
+    margin-bottom: 0;
+}
+
+/* --- GALERI KENANGAN (galeri.html) --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-card);
+    text-align: center;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
+}
+
+.caption {
+    padding: 10px;
+    font-weight: 500;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+/* Modal untuk Galeri */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 50; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    border-radius: 8px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 40px;
+    color: white;
+    background-color: var(--color-primary); 
+    font-size: 0.9em;
+}
+
 
 /* --- HANYA MEDIA QUERY YANG PERLU DISESUAIKAN UNTUK MOBILE --- */
 @media (max-width: 768px) {
@@ -139,5 +389,11 @@ section {
         gap: 20px;
         padding: 0; 
     }
-    /* ... (Semua CSS Mobile lainnya tetap sama) ... */
-}
+
+    /* Wali Kelas Mobile */
+    .guru-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    .guru-detail {
+        margin-top: 15px;
