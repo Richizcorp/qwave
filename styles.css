@@ -171,7 +171,7 @@ section {
     border: 3px solid var(--color-accent);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex-shrink: 0; 
-    transition: transform 0.2s, box-shadow 0.2s; /* Tambahkan transisi di sini */
+    transition: transform 0.2s, box-shadow 0.2s; 
 }
 
 /* Foto Guru Utama (dibuat lebih kecil dari wali kelas) */
@@ -180,6 +180,11 @@ section {
     height: 80px;
     border-width: 2px;
 }
+/* Tambahkan cursor pointer pada foto guru yang dapat diklik */
+.guru-photo-clickable {
+    cursor: pointer;
+}
+
 
 /* Gaya Profil Wali Kelas (TETAP ADA KOTAK) */
 .guru-profile {
@@ -203,49 +208,44 @@ section {
     margin: 5px 0;
 }
 
-/* Gaya Daftar Guru Pengajar Utama (DIHILANGKAN KOTAKNYA) */
+/* Gaya Daftar Guru Pengajar Utama (HANYA FOTO) */
 .guru-list-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Ubah Grid untuk display FOTO ONLY */
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); 
     gap: 20px;
+    justify-items: center; /* Rata tengah item grid */
+    align-items: center;
 }
 
 .guru-item {
     display: flex;
+    justify-content: center; /* Pastikan foto di tengah kontainer */
     align-items: center;
-    gap: 15px;
     /* MENGHILANGKAN KOTAK/PERSEGI PANJANG */
     padding: 0; 
     border: none; 
     border-radius: 0;
     background-color: transparent;
-    transition: none;
+    transition: none; 
 }
 
 .guru-item:hover {
-    /* Hapus semua efek hover pada kontainer */
     transform: none; 
     box-shadow: none;
-    cursor: default; 
 }
 
-/* Tambahkan efek hover pada foto agar interaktif */
+/* Tambahkan efek hover pada foto guru */
 .guru-item:hover .profile-photo {
     transform: scale(1.05);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Tambahkan shadow ringan pada foto */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); 
     border-color: var(--color-primary);
-}
-
-.guru-item h4 {
-    margin: 0;
-    color: var(--color-text);
 }
 
 
 /* Gaya Daftar Siswa - HANYA FOTO (Dinding Foto) */
 .siswa-list {
     display: grid;
-    /* Atur minmax agar pas dengan foto 100px dan gap */
     grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); 
     gap: 15px; 
 }
@@ -368,7 +368,7 @@ section {
     margin: 0;
 }
 
-/* Modal untuk Galeri dan Siswa (Struktur Dasar) */
+/* Modal untuk Galeri dan Siswa/Guru (Struktur Dasar) */
 .modal {
     display: none; 
     position: fixed; 
@@ -383,7 +383,7 @@ section {
     background-color: rgba(0,0,0,0.9); 
 }
 
-/* GAYA CONTAINER UNTUK LAYOUT SIDE-BY-SIDE (Foto & Moto di Modal Siswa) */
+/* GAYA CONTAINER UNTUK LAYOUT SIDE-BY-SIDE (Foto & Detail di Modal) */
 .modal-profile-content {
     margin: 60px auto 20px auto; 
     display: flex; 
@@ -396,7 +396,7 @@ section {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* GAYA FOTO DI DALAM MODAL SISWA */
+/* GAYA FOTO DI DALAM MODAL */
 .modal-content-img {
     width: 45%; 
     height: auto;
@@ -407,19 +407,25 @@ section {
     border: 3px solid var(--color-accent);
 }
 
-/* GAYA TEKS DI SAMPING FOTO MODAL SISWA */
-#siswa-caption {
+/* GAYA TEKS DI SAMPING FOTO MODAL */
+#siswa-caption, #guru-caption {
     width: 55%;
     text-align: left; 
     padding: 20px 0;
 }
-#siswa-caption h4 {
+#siswa-caption h4, #guru-caption h4 {
     color: var(--color-primary); 
     margin-top: 0;
     font-size: 1.5em;
 }
 #siswa-caption p {
     font-style: italic;
+    color: var(--color-text);
+    font-weight: normal; 
+    margin-top: 10px;
+    line-height: 1.4;
+}
+#guru-caption p {
     color: var(--color-text);
     font-weight: normal; 
     margin-top: 10px;
@@ -514,22 +520,24 @@ footer {
         margin-top: 15px;
     }
     
-    /* Guru Pengajar Utama Mobile (TANPA KOTAK) */
+    /* Guru Pengajar Utama Mobile (HANYA FOTO) */
+    .guru-list-container {
+        /* Kembalikan agar tampil lebih banyak di layar kecil */
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); 
+    }
     .guru-item {
-        /* Kembali ke tumpukan vertikal di mobile agar teks tidak terlalu sempit */
-        flex-direction: column; 
-        text-align: center;
-        padding: 15px 0; /* Tambah sedikit padding vertikal agar tidak terlalu rapat */
+        /* Pastikan foto tetap di tengah */
+        padding: 5px 0; 
     }
     .guru-item:hover .profile-photo {
-        transform: none; /* Hilangkan zoom di mobile */
+        transform: none; 
         box-shadow: none;
     }
 
     /* Siswa Mobile */
     .siswa-list {
         /* Sedikit kurangi ukuran grid untuk kerapatan */
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); 
     }
     .siswa-item {
         transform: none; /* Hilangkan transisi hover di mobile */
@@ -538,7 +546,7 @@ footer {
         transform: none;
     }
 
-    /* GAYA MODAL SISWA DI MOBILE: KEMBALI KE TAMPILAN STACK */
+    /* GAYA MODAL SISWA/GURU DI MOBILE: KEMBALI KE TAMPILAN STACK */
     .modal-profile-content {
         flex-direction: column; /* Stack vertikal */
         align-items: center;
@@ -550,9 +558,9 @@ footer {
         max-width: 200px; 
         margin-right: 0;
         margin-bottom: 15px;
-        border-radius: 50%; 
+        border-radius: 50%; /* Foto bulat di tampilan mobile */
     }
-    #siswa-caption {
+    #siswa-caption, #guru-caption {
         width: 100%;
         text-align: center;
         padding: 0;
