@@ -211,19 +211,22 @@ section {
 /* Gaya Daftar Guru Pengajar Utama (HANYA FOTO) */
 .guru-list-container {
     display: grid;
-    /* Ubah Grid untuk display FOTO ONLY */
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); 
-    gap: 20px;
-    justify-items: center; /* Rata tengah item grid */
+    /* Ubah Grid agar lebih rapat, 90px memberi ruang untuk foto 80px + border */
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); 
+    gap: 15px; 
+    justify-items: center; 
     align-items: center;
 }
 
 .guru-item {
     display: flex;
-    justify-content: center; /* Pastikan foto di tengah kontainer */
+    justify-content: center; 
     align-items: center;
-    /* MENGHILANGKAN KOTAK/PERSEGI PANJANG */
+    /* MEMAKSA UKURAN HANYA SEBESAR FOTO, MENGHILANGKAN PERSEGI PANJANG */
+    width: 80px; 
+    height: 80px; 
     padding: 0; 
+    margin: 0; 
     border: none; 
     border-radius: 0;
     background-color: transparent;
@@ -528,6 +531,8 @@ footer {
     .guru-item {
         /* Pastikan foto tetap di tengah */
         padding: 5px 0; 
+        width: 80px; 
+        height: 80px; 
     }
     .guru-item:hover .profile-photo {
         transform: none; 
