@@ -171,6 +171,7 @@ section {
     border: 3px solid var(--color-accent);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex-shrink: 0; 
+    transition: transform 0.2s, box-shadow 0.2s; /* Tambahkan transisi di sini */
 }
 
 /* Foto Guru Utama (dibuat lebih kecil dari wali kelas) */
@@ -239,8 +240,8 @@ section {
     gap: 15px; 
 }
 
+/* *** PERBAIKAN UTAMA: HILANGKAN SEMUA KONTEN VISUAL DARI KOTAK KONTENER *** */
 .siswa-item {
-    /* Hilangkan semua elemen visual box */
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -248,24 +249,32 @@ section {
     border: none; 
     background-color: transparent; 
     cursor: pointer;
-    transition: transform 0.2s;
+    /* Hapus transisi transform dari kontainer */
 }
 
 .siswa-item:hover {
-    /* Hanya efek membesar pada foto */
-    transform: scale(1.05); 
+    /* Pastikan tidak ada box-shadow atau efek lain pada kontainer */
     box-shadow: none; 
+    transform: none; 
 }
+/* *** AKHIR PERBAIKAN UTAMA *** */
+
 
 .siswa-item .profile-photo {
     width: 100px;
     height: 100px;
     margin-bottom: 0; 
     border-width: 2px;
-    border-color: var(--color-primary); /* Ubah warna border agar menonjol */
+    border-color: var(--color-primary); 
+    /* Transisi sudah ditambahkan di .profile-photo global */
 }
 
-/* BLOK .siswa-number DIHILANGKAN KARENA TIDAK ADA LAGI ELEMEN P */
+/* Terapkan hover effect langsung ke FOTO saat kontainer di-hover */
+.siswa-item:hover .profile-photo {
+    transform: scale(1.08); /* Efek membesar lebih terasa */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Tambahkan shadow ringan pada foto */
+    border-color: var(--color-accent); /* Ubah warna border saat di-hover */
+}
 
 
 .total-siswa {
@@ -505,7 +514,6 @@ footer {
     .siswa-item:hover {
         transform: none;
     }
-
 
     /* GAYA MODAL SISWA DI MOBILE: KEMBALI KE TAMPILAN STACK (Foto di atas Teks) */
     .modal-profile-content {
