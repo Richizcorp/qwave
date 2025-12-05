@@ -119,7 +119,7 @@ header h1 {
 
 .running-info-content {
     display: inline-block; 
-    /* DURASI DIPERLAMBAT KE 35 DETIK */
+    /* 🚀 PERUBAHAN KECEPATAN: Diatur ke 35 detik (lebih lambat) */
     animation: marquee 35s linear infinite; 
 }
 
@@ -460,5 +460,3 @@ footer {
         height: 100px;
     }
 }
-
-
