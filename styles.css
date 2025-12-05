@@ -142,7 +142,7 @@ header h1 {
 .running-info-container:hover .running-info-content {
     animation-play-state: paused;
 }
-/* --- END RUNNING TEXT STYLE --- */
+/* --- END RUNNING TEXT STYLE */
 
 /* --- CONTENT SECTIONS --- */
 main {
@@ -231,44 +231,42 @@ section {
 }
 
 
-/* Gaya Daftar Siswa - KEMBALI KE TAMPILAN GRID FOTO (Moto tersembunyi) */
+/* Gaya Daftar Siswa - HANYA FOTO (Dinding Foto) */
 .siswa-list {
     display: grid;
-    /* Ubah minmax agar foto muat lebih banyak di satu baris */
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
-    gap: 20px;
+    /* Atur minmax agar pas dengan foto 100px dan gap */
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); 
+    gap: 15px; 
 }
 
 .siswa-item {
+    /* Hilangkan semua elemen visual box */
     display: flex;
-    flex-direction: column;
+    justify-content: center; 
     align-items: center;
-    padding: 10px;
-    border: 1px solid var(--color-accent);
-    border-radius: 8px;
-    background-color: #fefefe;
+    padding: 0; 
+    border: none; 
+    background-color: transparent; 
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
 }
 
 .siswa-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Hanya efek membesar pada foto */
+    transform: scale(1.05); 
+    box-shadow: none; 
 }
 
 .siswa-item .profile-photo {
     width: 100px;
     height: 100px;
-    margin-bottom: 5px;
+    margin-bottom: 0; 
     border-width: 2px;
+    border-color: var(--color-primary); /* Ubah warna border agar menonjol */
 }
 
-.siswa-number {
-    font-weight: bold;
-    color: var(--color-primary);
-    margin: 5px 0 0 0;
-    font-size: 1.1em;
-}
+/* BLOK .siswa-number DIHILANGKAN KARENA TIDAK ADA LAGI ELEMEN P */
+
 
 .total-siswa {
     margin-top: 30px;
@@ -373,13 +371,13 @@ section {
     background-color: rgba(0,0,0,0.9); 
 }
 
-/* GAYA CONTAINER BARU UNTUK LAYOUT SIDE-BY-SIDE (Moto terlihat di samping foto) */
+/* GAYA CONTAINER UNTUK LAYOUT SIDE-BY-SIDE (Foto & Moto di Modal) */
 .modal-profile-content {
     margin: 60px auto 20px auto; 
-    display: flex; /* KUNCI UNTUK SIDE-BY-SIDE */
+    display: flex; 
     align-items: flex-start; 
     width: 90%;
-    max-width: 650px; /* Diperkecil agar lebih menyerupai kartu profil */
+    max-width: 650px; 
     background-color: var(--color-card); 
     border-radius: 8px;
     padding: 20px;
@@ -498,8 +496,16 @@ footer {
 
     /* Siswa Mobile */
     .siswa-list {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+        /* Sedikit kurangi ukuran grid untuk kerapatan */
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
     }
+    .siswa-item {
+        transform: none; /* Hilangkan transisi hover di mobile */
+    }
+    .siswa-item:hover {
+        transform: none;
+    }
+
 
     /* GAYA MODAL SISWA DI MOBILE: KEMBALI KE TAMPILAN STACK (Foto di atas Teks) */
     .modal-profile-content {
