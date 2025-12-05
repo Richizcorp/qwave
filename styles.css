@@ -411,7 +411,8 @@ section {
 }
 #siswa-caption p {
     font-style: italic;
-    color: #f1f1f1;
+    color: #ffffff; /* 🚀 DIUBAH KE PUTIH MURNI UNTUK KONTRAS MAKSIMAL */
+    font-weight: 500; /* 🚀 DITAMBAHKAN SEDIKIT BOLD UNTUK MEMPERJELAS TEKS */
     margin-top: 5px;
 }
 
