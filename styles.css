@@ -119,8 +119,8 @@ header h1 {
 
 .running-info-content {
     display: inline-block; 
-    /* PERUBAHAN DI SINI: DURASI DIATUR KE 8s (8 detik, kecepatan ideal) */
-    animation: marquee 20s linear infinite; 
+    /* DURASI DIPERLAMBAT KE 35 DETIK */
+    animation: marquee 35s linear infinite; 
 }
 
 .running-info-content p {
@@ -460,4 +460,3 @@ footer {
         height: 100px;
     }
 }
-
