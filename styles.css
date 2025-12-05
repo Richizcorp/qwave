@@ -231,43 +231,54 @@ section {
 }
 
 
-/* Gaya Daftar Siswa - KEMBALI KE TAMPILAN GRID FOTO */
+/* Gaya Daftar Siswa - DIKEMBALIKAN KE TAMPILAN SIDE-BY-SIDE */
 .siswa-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
-    gap: 20px;
+    /* Mengembalikan ke tumpukan item vertikal */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
 }
 
 .siswa-item {
+    /* Mengembalikan ke tampilan foto dan detail berdampingan */
     display: flex;
-    flex-direction: column;
+    gap: 20px;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid var(--color-accent);
     border-radius: 8px;
     background-color: #fefefe;
-    cursor: pointer;
+    cursor: auto; /* Tidak dapat diklik lagi */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .siswa-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Menambahkan sedikit efek hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .siswa-item .profile-photo {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 5px;
-    border-width: 2px;
+    /* Mengembalikan ukuran foto normal untuk tampilan list */
+    width: 120px;
+    height: 120px;
+    margin-bottom: 0;
+    border-width: 3px; 
 }
 
-.siswa-number {
-    font-weight: bold;
+.siswa-item h4 {
+    margin: 0 0 5px 0;
     color: var(--color-primary);
-    margin: 5px 0 0 0;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
+
+.siswa-item p {
+    margin: 0;
+    font-style: italic;
+    color: var(--color-light-text);
+}
+
+/* Hapus gaya .siswa-number karena elemennya sudah dihapus dari HTML */
 
 .total-siswa {
     margin-top: 30px;
@@ -357,7 +368,7 @@ section {
     margin: 0;
 }
 
-/* Modal untuk Galeri dan Siswa (Struktur Dasar) */
+/* Modal untuk Galeri (Struktur Dasar) - Modal Siswa Dihapus */
 .modal {
     display: none; 
     position: fixed; 
@@ -372,49 +383,13 @@ section {
     background-color: rgba(0,0,0,0.9); 
 }
 
-/* GAYA CONTAINER BARU UNTUK LAYOUT SIDE-BY-SIDE */
-.modal-profile-content {
-    margin: 60px auto 20px auto; /* Margin di atas, auto kiri/kanan */
-    display: flex; /* KUNCI UNTUK SIDE-BY-SIDE */
-    align-items: flex-start; /* Konten sejajar dari atas */
-    width: 85%;
-    max-width: 850px; 
-    background-color: var(--color-card); 
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
     border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
-
-/* GAYA FOTO DI DALAM MODAL */
-.modal-content-img {
-    width: 40%; 
-    height: auto;
-    max-width: 300px; 
-    border-radius: 8px; /* Tampilan kotak/non-rounded */
-    object-fit: cover;
-    margin-right: 20px;
-    border: 3px solid var(--color-accent);
-}
-
-/* GAYA TEKS DI SAMPING FOTO */
-#siswa-caption {
-    width: 60%;
-    text-align: left; 
-    padding: 20px 0;
-}
-#siswa-caption h4 {
-    color: var(--color-primary); 
-    margin-top: 0;
-    font-size: 1.5em;
-}
-#siswa-caption p {
-    font-style: italic;
-    color: var(--color-text);
-    font-weight: normal; 
-    margin-top: 10px;
-    line-height: 1.4;
-}
-
 
 /* Modal Caption untuk Galeri */
 #caption {
@@ -427,6 +402,9 @@ section {
     padding: 10px 0;
     height: 150px;
 }
+
+/* Gaya Modal Siswa yang sebelumnya ada di sini TELAH DIHAPUS */
+
 
 .close {
     position: absolute;
@@ -497,16 +475,7 @@ footer {
 
     /* Siswa Mobile */
     .siswa-list {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+        /* Mengembalikan ke 1 kolom penuh agar foto dan teks tetap terbaca */
+        grid-template-columns: 1fr; 
     }
-
-    /* GAYA MODAL SISWA DI MOBILE: KEMBALI KE TAMPILAN STACK (Foto di atas Teks) */
-    .modal-profile-content {
-        flex-direction: column; /* Stack vertikal */
-        align-items: center;
-        width: 90%;
-        padding: 15px;
-    }
-    .modal-content-img {
-        width: 100%;
-        max-width
+}
