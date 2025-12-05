@@ -120,7 +120,7 @@ header h1 {
 .running-info-content {
     display: inline-block; 
     /* 🚀 PERUBAHAN KECEPATAN: Diatur ke 35 detik (lebih lambat) */
-    animation: marquee 60s linear infinite; 
+    animation: marquee 90s linear infinite; 
 }
 
 .running-info-content p {
@@ -460,5 +460,6 @@ footer {
         height: 100px;
     }
 }
+
 
 
