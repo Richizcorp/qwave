@@ -39,25 +39,28 @@
             <h3>Daftar Guru Pengajar Utama:</h3>
             <div class="guru-list-container">
                 <div class="guru-item">
-                    <img src="images/foto-guru1.jpg" alt="Foto Guru 1" class="profile-photo small-photo">
-                    <div>
-                        <h4>[Nama Guru 1]</h4>
-                        <p>[Mata Pelajaran 1]</p>
-                    </div>
+                    <img src="images/foto-guru1.jpg" 
+                         alt="Foto Guru 1" 
+                         class="profile-photo small-photo guru-photo-clickable" 
+                         data-src="images/foto-guru1.jpg"
+                         data-name="[Nama Guru 1]"
+                         data-subject="[Mata Pelajaran 1]">
                 </div>
                 <div class="guru-item">
-                    <img src="images/foto-guru2.jpg" alt="Foto Guru 2" class="profile-photo small-photo">
-                    <div>
-                        <h4>[Nama Guru 2]</h4>
-                        <p>[Mata Pelajaran 2]</p>
-                    </div>
+                    <img src="images/foto-guru2.jpg" 
+                         alt="Foto Guru 2" 
+                         class="profile-photo small-photo guru-photo-clickable"
+                         data-src="images/foto-guru2.jpg"
+                         data-name="[Nama Guru 2]"
+                         data-subject="[Mata Pelajaran 2]">
                 </div>
                 <div class="guru-item">
-                    <img src="images/foto-guru3.jpg" alt="Foto Guru 3" class="profile-photo small-photo">
-                    <div>
-                        <h4>[Nama Guru 3]</h4>
-                        <p>[Mata Pelajaran 3]</p>
-                    </div>
+                    <img src="images/foto-guru3.jpg" 
+                         alt="Foto Guru 3" 
+                         class="profile-photo small-photo guru-photo-clickable"
+                         data-src="images/foto-guru3.jpg"
+                         data-name="[Nama Guru 3]"
+                         data-subject="[Mata Pelajaran 3]">
                 </div>
             </div>
         </section>
@@ -68,6 +71,16 @@
         <p>&copy; [Tahun] Kelas [Nama Kelas Anda]. Dibuat dengan semangat kebersamaan.</p>
     </footer>
 
+    <div class="modal" id="guruModal">
+        <span class="close-guru close">&times;</span>
+        <div class="modal-profile-content">
+            <img class="modal-content-img" id="guru-modal-img"> 
+            <div id="guru-caption">
+                <h4 id="guru-caption-name"></h4>
+                <p id="guru-caption-subject"></p>
+            </div>
+        </div>
+    </div>
     <script>
         const hamburgerButton = document.getElementById('hamburger-button');
         const navMenu = document.getElementById('nav-menu');
@@ -75,6 +88,42 @@
         hamburgerButton.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
+
+        // --- LOGIKA MODAL GURU ---
+        var modalGuru = document.getElementById("guruModal"); 
+        var imagesGuru = document.getElementsByClassName('guru-photo-clickable');
+        var modalImgGuru = document.getElementById("guru-modal-img");
+        var nameTextGuru = document.getElementById("guru-caption-name");
+        var subjectTextGuru = document.getElementById("guru-caption-subject");
+        var body = document.body;
+
+        for (var i = 0; i < imagesGuru.length; i++) {
+            var imgGuru = imagesGuru[i];
+            imgGuru.onclick = function(evt) {
+                modalGuru.style.display = "block";
+                // Mengambil src dan data dari atribut khusus
+                modalImgGuru.src = this.getAttribute('data-src');
+                nameTextGuru.innerHTML = this.getAttribute('data-name'); 
+                // Mata Pelajaran dipanggil dan ditampilkan di dalam modal
+                subjectTextGuru.innerHTML = 'Mata Pelajaran: <strong>' + this.getAttribute('data-subject') + '</strong>'; 
+                body.style.overflow = "hidden"; // Mengunci scroll body
+            }
+        }
+
+        // Penanganan tombol tutup (x)
+        var closeSpanGuru = document.getElementsByClassName("close-guru")[0];
+        closeSpanGuru.onclick = function() { 
+            modalGuru.style.display = "none";
+            body.style.overflow = "auto"; // Mengembalikan scroll body
+        }
+
+        // Penanganan klik di luar modal
+        window.onclick = function(event) {
+            if (event.target == modalGuru) {
+                modalGuru.style.display = "none";
+                body.style.overflow = "auto";
+            }
+        }
     </script>
 </body>
 </html>
