@@ -120,7 +120,7 @@ header h1 {
 .running-info-content {
     display: inline-block; 
     /* DURASI DIPERLAMBAT KE 20 DETIK */
-    animation: marquee 20s linear infinite; 
+    animation: marquee 40s linear infinite; 
 }
 
 .running-info-content p {
@@ -571,3 +571,4 @@ footer {
         padding: 0;
     }
 }
+
