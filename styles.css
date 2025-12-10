@@ -23,13 +23,9 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif; 
     margin: 0;
     padding: 0;
-    /* --- TEMA LUAR ANGKASA DENGAN GAMBAR LATAR --- */
-    /* Menggunakan URL gambar yang Anda berikan */
-    background-image: url('https://googleusercontent.com/image_generation_content/0');
-    background-color: var(--color-background); /* Warna cadangan jika gambar gagal dimuat */
-    background-repeat: repeat;
-    background-size: 300px; /* Atur ukuran gambar tile yang berulang */
-    background-attachment: fixed; 
+    /* --- HANYA MENGGUNAKAN WARNA Latar Belakang SOLID --- */
+    background-color: var(--color-background); 
+    /* Properti background-image, repeat, dan size telah dihapus */
     /* ----------------------------------------------- */
     color: var(--color-text); 
     line-height: 1.6; 
