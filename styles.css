@@ -24,9 +24,9 @@ body {
     margin: 0;
     padding: 0;
     /* --- TEMA LUAR ANGKASA DENGAN GAMBAR LATAR --- */
-    /* Ganti URL di bawah ini dengan URL file gambar Anda atau simpan gambar ke folder yang sama dan gunakan url('namafile.jpg') */
+    /* Menggunakan URL gambar yang Anda berikan */
     background-image: url('https://googleusercontent.com/image_generation_content/0');
-    background-color: var(--color-background); 
+    background-color: var(--color-background); /* Warna cadangan jika gambar gagal dimuat */
     background-repeat: repeat;
     background-size: 300px; /* Atur ukuran gambar tile yang berulang */
     background-attachment: fixed; 
@@ -52,8 +52,6 @@ header {
     justify-content: space-between; 
     align-items: center;
     position: relative; 
-    /* Tambahkan sedikit transparansi agar gambar latar terlihat */
-    /* opacity: 0.95; */ 
 }
 
 header h1 {
@@ -532,3 +530,45 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); 
     }
     .guru-item {
+        /* Pastikan foto tetap di tengah */
+        padding: 5px 0; 
+        width: 80px; 
+        height: 80px; 
+    }
+    .guru-item:hover .profile-photo {
+        transform: none; 
+        box-shadow: none;
+    }
+
+    /* Siswa Mobile */
+    .siswa-list {
+        /* Sedikit kurangi ukuran grid untuk kerapatan */
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); 
+    }
+    .siswa-item {
+        transform: none; /* Hilangkan transisi hover di mobile */
+    }
+    .siswa-item:hover {
+        transform: none;
+    }
+
+    /* GAYA MODAL SISWA/GURU DI MOBILE: KEMBALI KE TAMPILAN STACK */
+    .modal-profile-content {
+        flex-direction: column; /* Stack vertikal */
+        align-items: center;
+        width: 90%;
+        padding: 15px;
+    }
+    .modal-content-img {
+        width: 100%;
+        max-width: 200px; 
+        margin-right: 0;
+        margin-bottom: 15px;
+        border-radius: 50%; /* Foto bulat di tampilan mobile */
+    }
+    #siswa-caption, #guru-caption {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+}
