@@ -478,4 +478,94 @@ footer {
     padding: 15px 20px;
     margin-top: 40px;
     color: white;
-    background-color: var(--color-primary);
+    background-color: var(--color-primary); 
+    font-size: 0.9em;
+}
+
+
+/* --- MEDIA QUERIES (Responsif) --- */
+@media (max-width: 768px) {
+    /* Header Mobile */
+    header {
+        padding: 15px 15px;
+    }
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    /* Menu di Mobile: Paksa lebar penuh di HP */
+    .nav-menu {
+        width: 100%; 
+        right: 0; 
+        left: 0;
+        border-radius: 0;
+    }
+    
+    .nav-item {
+        text-align: center; /* Rata tengah di HP */
+    }
+
+    /* Dashboard Index Mobile */
+    .dashboard-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        padding: 0; 
+    }
+
+    /* Wali Kelas Mobile (TETAP ADA KOTAK) */
+    .guru-profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    .guru-detail {
+        margin-top: 15px;
+    }
+    
+    /* Guru Pengajar Utama Mobile (HANYA FOTO) */
+    .guru-list-container {
+        /* Kembalikan agar tampil lebih banyak di layar kecil */
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); 
+    }
+    .guru-item {
+        /* Pastikan foto tetap di tengah */
+        padding: 5px 0; 
+        width: 80px; 
+        height: 80px; 
+    }
+    .guru-item:hover .profile-photo {
+        transform: none; 
+        box-shadow: none;
+    }
+
+    /* Siswa Mobile */
+    .siswa-list {
+        /* Sedikit kurangi ukuran grid untuk kerapatan */
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); 
+    }
+    .siswa-item {
+        transform: none; /* Hilangkan transisi hover di mobile */
+    }
+    .siswa-item:hover {
+        transform: none;
+    }
+
+    /* GAYA MODAL SISWA/GURU DI MOBILE: KEMBALI KE TAMPILAN STACK */
+    .modal-profile-content {
+        flex-direction: column; /* Stack vertikal */
+        align-items: center;
+        width: 90%;
+        padding: 15px;
+    }
+    .modal-content-img {
+        width: 100%;
+        max-width: 200px; 
+        margin-right: 0;
+        margin-bottom: 15px;
+        border-radius: 50%; /* Foto bulat di tampilan mobile */
+    }
+    #siswa-caption, #guru-caption {
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+}
