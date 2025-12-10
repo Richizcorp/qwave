@@ -4,7 +4,7 @@
     --color-background: #0a0a2a;     /* Deep Space / Biru Gelap */
     --color-card: #1a1a3a;           /* Card Gelap */
     --color-primary: #4a90e2;        /* Space Blue / Highlight Utama */
-    --color-accent: #ffcc00;         /* Star Gold / Highlight Kedua */
+    --color-accent: #1d1b13;         /* Star Gold / Highlight Kedua */
     --color-text: #f0f0f0;           /* Teks Terang */
     --color-light-text: #aaaaaa;     /* Teks Abu-abu */
 }
@@ -568,3 +568,4 @@ footer {
         padding: 0;
     }
 }
+
